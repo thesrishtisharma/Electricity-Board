@@ -1,0 +1,75 @@
+<div class="container">
+    <h1 style="text-align: center;">Filter Applicants from StartDate to EndDate</h1>
+    <button mat-mini-fab color="primary" (click)="goto('explore')" aria-label="Example icon button with a menu icon">
+        <mat-icon>undo</mat-icon>
+    </button>
+    <br><br>
+    <h2 style="color: midnightblue;">Please select the application date below:</h2>
+    <div class="container">
+        <form class="example-form" ngNativeValidate>
+            <div class="form-group">
+                <label for="startDate">Start Date</label>
+                <input type="date" #startDate class="form-control" aria-labelledby="startDate" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="startDate">End Date</label>
+                <input type="date" #endDate class="form-control" aria-labelledby="endDate" required>
+            </div>
+
+            <div class="form-group" style="text-align: center;">
+                <button mat-raised-button type="button" color="primary" (click)="applyFilter(startDate, endDate)">Search for Applicants</button>
+            </div>
+        </form>
+    </div>
+    <br><br>
+    <div id="scrollable" *ngIf="exist">
+    <table class="table table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Applicant Name</th>
+            <th scope="col">Gender</th>
+            <th scope="col">District</th>
+            <th scope="col">State</th>
+            <th scope="col">Pincode</th>
+            <th scope="col">Ownership</th>
+            <th scope="col">Govt ID Type</th>
+            <th scope="col">ID Number</th>
+            <th scope="col">Category</th>
+            <th scope="col">Load Applied</th>
+            <th scope="col">Applicant Date</th>
+            <th scope="col">Approval Date</th>
+            <th scope="col">Modified Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">Reviewer Id</th>
+            <th scope="col">Reviewer Name</th>
+            <th scope="col">Reviewer Comments</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of allApplicants">
+            <th scope="row">{{x.id}}</th>
+            <td>{{x.applicantName}}</td>
+            <td>{{x.gender}}</td>
+            <td>{{x.district}}</td>
+            <td>{{x.state}}</td>
+            <td>{{x.pincode}}</td>
+            <td>{{x.ownership}}</td>
+            <td>{{x.govtIdType}}</td>
+            <td>{{x.idNumber}}</td>
+            <td>{{x.category}}</td>
+            <td>{{x.loadApplied}}</td>
+            <td>{{x.applicationDate}}</td>
+            <td>{{x.approvalDate}}</td>
+            <td>{{x.modifiedDate}}</td>
+            <td>{{x.status}}</td>
+            <td>{{x.reviewerId}}</td>
+            <td>{{x.reviewerName}}</td>
+            <td>{{x.reviewerComments}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+    </div>
+</div>

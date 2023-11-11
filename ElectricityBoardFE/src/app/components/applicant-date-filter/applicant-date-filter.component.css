@@ -1,0 +1,37 @@
+.container{
+    padding-top: 2%;
+}
+
+#scrollable{
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow-x: auto; 
+}
+
+p, td, th, h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1{
+    color: saddlebrown;
+}
+
+@media screen and (max-width: 600px) {
+    /* For phones: */
+    p{
+        font-size: 11px;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    /* For tablets: */
+    p{
+        font-size: 12px;
+    }
+}
+  
+@media screen and (min-width: 768px) {
+    /* For desktop: */
+    p{
+        font-size: 13px;
+    }
+}

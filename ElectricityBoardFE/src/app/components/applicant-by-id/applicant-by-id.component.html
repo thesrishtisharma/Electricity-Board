@@ -1,0 +1,80 @@
+<div class="container">
+    <h1 style="text-align: center;">Fetch Applicant by ID</h1>
+    <button mat-mini-fab color="primary" (click)="goto('explore')" aria-label="Example icon button with a menu icon">
+        <mat-icon>undo</mat-icon>
+    </button>
+    <br><br>
+
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>ID</mat-label>
+            <input type="number" #id matInput [formControl]="numberFormControl" [errorStateMatcher]="matcher"
+                   placeholder="Enter an integer">
+            <mat-hint>Errors appear instantly!</mat-hint>
+            
+            <!-- Validation messages for integer input -->
+            <ng-container *ngIf="numberFormControl.hasError('integer') && !numberFormControl.hasError('required')">
+              <mat-error>Please enter a valid integer</mat-error>
+            </ng-container>
+            
+            <ng-container *ngIf="numberFormControl.hasError('required')">
+              <mat-error>Number is <strong>required</strong></mat-error>
+            </ng-container>
+        </mat-form-field>
+        &nbsp;
+        <button mat-mini-fab color="primary" type="button" (click)="find(id)" aria-label="Example icon button with a menu icon">
+            <mat-icon>search</mat-icon>
+        </button>
+    </form>
+
+    <br>
+
+    <div id="scrollable" *ngIf="exist">
+        <table class="table table-hover">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Applicant Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">District</th>
+                <th scope="col">State</th>
+                <th scope="col">Pincode</th>
+                <th scope="col">Ownership</th>
+                <th scope="col">Govt ID Type</th>
+                <th scope="col">ID Number</th>
+                <th scope="col">Category</th>
+                <th scope="col">Load Applied</th>
+                <th scope="col">Applicant Date</th>
+                <th scope="col">Approval Date</th>
+                <th scope="col">Modified Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Reviewer Id</th>
+                <th scope="col">Reviewer Name</th>
+                <th scope="col">Reviewer Comments</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr [(ngModel)]="applicant">
+                <th scope="row">{{applicant.id}}</th>
+                <td>{{applicant.applicantName}}</td>
+                <td>{{applicant.gender}}</td>
+                <td>{{applicant.district}}</td>
+                <td>{{applicant.state}}</td>
+                <td>{{applicant.pincode}}</td>
+                <td>{{applicant.ownership}}</td>
+                <td>{{applicant.govtIdType}}</td>
+                <td>{{applicant.idNumber}}</td>
+                <td>{{applicant.category}}</td>
+                <td>{{applicant.loadApplied}}</td>
+                <td>{{applicant.applicationDate}}</td>
+                <td>{{applicant.approvalDate}}</td>
+                <td>{{applicant.modifiedDate}}</td>
+                <td>{{applicant.status}}</td>
+                <td>{{applicant.reviewerId}}</td>
+                <td>{{applicant.reviewerName}}</td>
+                <td>{{applicant.reviewerComments}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

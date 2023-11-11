@@ -1,0 +1,55 @@
+<div class="container">
+    <h1 style="text-align: center;">Display All Applicants</h1>
+    <button mat-mini-fab color="primary" (click)="goto('explore')" aria-label="Example icon button with a menu icon">
+        <mat-icon>undo</mat-icon>
+    </button>
+    <br><br>
+    <div id="scrollable">
+    <table class="table table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Applicant Name</th>
+            <th scope="col">Gender</th>
+            <th scope="col">District</th>
+            <th scope="col">State</th>
+            <th scope="col">Pincode</th>
+            <th scope="col">Ownership</th>
+            <th scope="col">Govt ID Type</th>
+            <th scope="col">ID Number</th>
+            <th scope="col">Category</th>
+            <th scope="col">Load Applied</th>
+            <th scope="col">Applicant Date</th>
+            <th scope="col">Approval Date</th>
+            <th scope="col">Modified Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">Reviewer Id</th>
+            <th scope="col">Reviewer Name</th>
+            <th scope="col">Reviewer Comments</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of allApplicants">
+            <th scope="row">{{x.id}}</th>
+            <td>{{x.applicantName}}</td>
+            <td>{{x.gender}}</td>
+            <td>{{x.district}}</td>
+            <td>{{x.state}}</td>
+            <td>{{x.pincode}}</td>
+            <td>{{x.ownership}}</td>
+            <td>{{x.govtIdType}}</td>
+            <td>{{x.idNumber}}</td>
+            <td>{{x.category}}</td>
+            <td>{{x.loadApplied}}</td>
+            <td>{{x.applicationDate}}</td>
+            <td>{{x.approvalDate}}</td>
+            <td>{{x.modifiedDate}}</td>
+            <td>{{x.status}}</td>
+            <td>{{x.reviewerId}}</td>
+            <td>{{x.reviewerName}}</td>
+            <td>{{x.reviewerComments}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

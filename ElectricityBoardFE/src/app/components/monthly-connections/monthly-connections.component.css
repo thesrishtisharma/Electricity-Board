@@ -1,0 +1,23 @@
+div{
+    padding-top: 2%;
+    text-align: center;
+}
+
+h1, div{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media screen and (max-width: 600px) {
+    /* For phones: */
+    
+}
+
+@media screen and (min-width: 600px) {
+    /* For tablets: */
+    
+}
+  
+@media screen and (min-width: 768px) {
+    /* For desktop: */
+    
+}

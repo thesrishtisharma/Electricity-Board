@@ -1,0 +1,31 @@
+<div class="container">
+    <p>
+        <span style="color: saddlebrown;">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis sagittis nisl, eu accumsan justo auctor id. 
+            Sed nec quam eu orci tincidunt tincidunt sit amet a orci. Nam nec dolor ut libero commodo sodales. Duis vel augue id 
+            justo ultrices tristique vel vitae felis. Vivamus a sem eu elit ultrices finibus eget vel nisi. Integer fringilla 
+            cursus lacus, nec tincidunt felis efficitur ac.
+        </span>
+    </p>
+
+    <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Summary</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of availableOptions">
+            <th scope="row">{{x.id}}</th>
+            <td>{{x.option}}</td>
+            <td>
+                <button mat-mini-fab color="primary" (click)="load(x.action)" aria-label="Example icon button with a menu icon">
+                    <mat-icon>start</mat-icon>
+                </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

@@ -1,0 +1,196 @@
+<div class="container">
+    <h1 style="text-align: center;">Modify existing Applicant's details</h1>
+
+    <br>
+    <p style="font-size: smaller; color: orangered;">{{message}}</p>
+    <form>
+        <mat-form-field id="outer">
+            <mat-label>Select Applicant to Modify</mat-label>
+            <mat-select #userId>
+                <mat-option *ngFor="let x of allApplicants" [value]="x.id">{{x.applicantName}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <br>
+        <button mat-raised-button (click)="loadApplicant(userId)" rowor="basic">Proceed</button>
+    </form>
+    <br>
+    <form *ngIf="selection">
+        <table class="table table-hover">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Existing Details</th>
+                <th scope="col">Update Details Here</th>
+            </tr>
+            </thead>
+            <tr>
+                <th scope="row">ID</th>
+                <td colspan="2">{{selectedApplicant.id}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Applicant Name</th>
+                <td>{{selectedApplicant.applicantName}}</td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Leave blank, if no change</mat-label>
+                        <textarea matInput placeholder="Updated value here" name="applicantName" [(ngModel)]="temp.applicantName"></textarea>
+                    </mat-form-field>
+                </td>
+            </tr>
+                <tr>
+                <th scope="row">Gender</th>
+                <td>{{selectedApplicant.gender}}</td>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Gender</mat-label>
+                        <mat-select name="gender" [(ngModel)]="temp.gender">
+                            <mat-option value="Male">Male</mat-option>
+                            <mat-option value="Female">Female</mat-option>
+                            <mat-option value="Other">Other</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+            </tr>
+                <tr>
+                <th scope="row">District</th>
+                <td>{{selectedApplicant.district}}</td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Leave blank, if no change</mat-label>
+                        <textarea matInput placeholder="Updated value here" name="district" [(ngModel)]="temp.district"></textarea>
+                    </mat-form-field>
+                </td>
+            </tr>
+                <tr>
+                <th scope="row">State</th>
+                <td>{{selectedApplicant.state}}</td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Leave blank, if no change</mat-label>
+                        <textarea matInput placeholder="Updated value here" name="state" [(ngModel)]="temp.state"></textarea>
+                    </mat-form-field>
+                </td>
+            </tr>
+                <tr>
+                <th scope="row">Pincode</th>
+                <td>{{selectedApplicant.pincode}}</td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Leave blank, if no change</mat-label>
+                        <textarea matInput placeholder="Updated value here" name="pincode" [(ngModel)]="temp.pincode"></textarea>
+                    </mat-form-field>
+                </td>
+            </tr>
+                <tr>
+                <th scope="row">Ownership</th>
+                <td>{{selectedApplicant.ownership}}</td>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Leave blank, if no change</mat-label>
+                        <mat-select name="ownership" [(ngModel)]="temp.ownership">
+                            <mat-option value="INDIVIDUAL">INDIVIDUAL</mat-option>
+                            <mat-option value="JOINT">JOINT</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+            </tr>
+                <tr>
+                <th scope="row">Govt ID Type</th>
+                <td colspan="2">{{selectedApplicant.govtIdType}}</td>
+            </tr>
+            <tr>
+                <th scope="row">ID Number</th>
+                <td colspan="2">{{selectedApplicant.idNumber}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Category</th>
+                <td>{{selectedApplicant.category}}</td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Leave blank, if no change</mat-label>
+                        <textarea matInput placeholder="Updated value here" name="category" [(ngModel)]="temp.category"></textarea>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Load Applied</th>
+                <td>{{selectedApplicant.loadApplied}}</td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Leave blank, if no change</mat-label>
+                        <textarea matInput placeholder="Updated value here" name="loadApplied" [(ngModel)]="temp.loadApplied"></textarea>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Applicantion Date</th>
+                <td colspan="2">{{selectedApplicant.applicationDate}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Approval Date</th>
+                <td>{{selectedApplicant.approvalDate}}</td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Leave blank, if no change</mat-label>
+                        <input type="date" matInput placeholder="Updated value here" name="approvalDate" [(ngModel)]="temp.approvalDate">
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Modified Date</th>
+                <td colspan="2">{{selectedApplicant.modifiedDate}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Status</th>
+                <td>{{selectedApplicant.status}}</td>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Leave blank, if no change</mat-label>
+                        <mat-select name="status" [(ngModel)]="temp.status">
+                            <mat-option value="Approved">Approved</mat-option>
+                            <mat-option value="Connection Released">Connection Released</mat-option>
+                            <mat-option value="Pending">Pending</mat-option>
+                            <mat-option value="Rejected">Rejected</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Reviewer Id</th>
+                <td colspan="2">{{selectedApplicant.reviewerId}}</td>
+                <!-- <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Leave blank, if no change</mat-label>
+                        <textarea matInput placeholder="Updated value here"></textarea>
+                    </mat-form-field>
+                </td> -->
+            </tr>
+            <tr>
+                <th scope="row">Reviewer Name</th>
+                <td colspan="2">{{selectedApplicant.reviewerName}}</td>
+                <!-- <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Leave blank, if no change</mat-label>
+                        <textarea matInput placeholder="Updated value here"></textarea>
+                    </mat-form-field>
+                </td> -->
+            </tr>
+            <tr>
+                <th scope="row">Reviewer Comments</th>
+                <td colspan="2">{{selectedApplicant.reviewerComments}}</td>
+                <!-- <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Leave blank, if no change</mat-label>
+                        <textarea matInput placeholder="Updated value here"></textarea>
+                    </mat-form-field>
+                </td> -->
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center;">
+                    <button mat-raised-button color="primary" type="button" (click)="submitModification()">Modify Connection Request</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

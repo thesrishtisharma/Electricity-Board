@@ -1,0 +1,21 @@
+<div class="container">
+    <h1>
+        Monthly Connection Requests
+    </h1>
+    <br>
+    <div>
+        <ngx-charts-bar-vertical-2d [results]="requests"
+            [view]="view"
+            [scheme]="colorScheme"
+            [results]="requests"
+            [gradient]="gradient"
+            [xAxis]="showXAxis"
+            [yAxis]="showYAxis"
+            [legend]="showLegend"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxisLabel]="xAxisLabel"
+            [yAxisLabel]="yAxisLabel">
+        </ngx-charts-bar-vertical-2d>
+    </div>
+</div>
