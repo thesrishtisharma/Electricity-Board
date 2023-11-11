@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "39138040-5b0d-4e58-94e9-6ae91de29dfe",
+		"name": "ElectricityBoardApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25502468"
+	},
+	"item": [
+		{
+			"name": "1. All Applicants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{applicants}}/all-applicants",
+					"host": [
+						"{{applicants}}"
+					],
+					"path": [
+						"all-applicants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Applicant By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{applicants}}/applicant-details?id=4",
+					"host": [
+						"{{applicants}}"
+					],
+					"path": [
+						"applicant-details"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Filter Applicants by Date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{applicants}}/applicants/filter?startDate=2021-12-10&endDate=2021-12-12",
+					"host": [
+						"{{applicants}}"
+					],
+					"path": [
+						"applicants",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2021-12-10"
+						},
+						{
+							"key": "endDate",
+							"value": "2021-12-12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. Modify Connection",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 8,\r\n        \"applicantName\": \"MIKE\",\r\n        \"gender\": \"Male\",\r\n        \"district\": \"North\",\r\n        \"state\": \"DELHI\",\r\n        \"pincode\": 110018,\r\n        \"ownership\": \"INDIVIDUAL\",\r\n        \"govtIdType\": \"VOTER_ID\",\r\n        \"idNumber\": 76623,\r\n        \"category\": \"Commerical\",\r\n        \"loadApplied\": 10,\r\n        \"applicationDate\": \"2021-10-16\",\r\n        \"approvalDate\": null,\r\n        \"modifiedDate\": \"2021-11-16\",\r\n        \"status\": \"Pending\",\r\n        \"reviewerId\": 1311,\r\n        \"reviewerName\": \"Sudhanshu Gupta\",\r\n        \"reviewerComments\": \"Documents verification in progress\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{applicants}}/modify-connection",
+					"host": [
+						"{{applicants}}"
+					],
+					"path": [
+						"modify-connection"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. Monthly Connection Requests",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{connections}}/monthly-connection-requests",
+					"host": [
+						"{{connections}}"
+					],
+					"path": [
+						"monthly-connection-requests"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "applicants",
+			"value": "localhost:8080/api",
+			"type": "string"
+		},
+		{
+			"key": "connections",
+			"value": "localhost:8080/connections",
+			"type": "string"
+		}
+	]
+}
